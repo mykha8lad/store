@@ -1,0 +1,15 @@
+D:\c#-projects\Store\Store\bin\Debug\net7.0\Store.exe
+D:\c#-projects\Store\Store\bin\Debug\net7.0\Store.deps.json
+D:\c#-projects\Store\Store\bin\Debug\net7.0\Store.runtimeconfig.json
+D:\c#-projects\Store\Store\bin\Debug\net7.0\Store.dll
+D:\c#-projects\Store\Store\bin\Debug\net7.0\Store.pdb
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.csproj.AssemblyReference.cache
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.GeneratedMSBuildEditorConfig.editorconfig
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.AssemblyInfoInputs.cache
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.AssemblyInfo.cs
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.csproj.CoreCompileInputs.cache
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.dll
+D:\c#-projects\Store\Store\obj\Debug\net7.0\refint\Store.dll
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.pdb
+D:\c#-projects\Store\Store\obj\Debug\net7.0\Store.genruntimeconfig.cache
+D:\c#-projects\Store\Store\obj\Debug\net7.0\ref\Store.dll
