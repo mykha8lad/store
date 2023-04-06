@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Store.Devices
 {
@@ -79,7 +79,7 @@ namespace Store.Devices
         public abstract void DisplayInfo(int y);
         void GenerateSeries()
         {
-            Random rnd = new Random();
+            Random rnd = new();
             for (int s = 1; s <= 8; ++s)
             {
                 Series += (char)rnd.Next(65, 90);
