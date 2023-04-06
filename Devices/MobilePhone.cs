@@ -2,10 +2,10 @@
 {
     internal class MobilePhone : Device
     {
-        private string nameMobilePhone;
+        protected string nameMobilePhone;
         protected string networkType;
-        protected int storageCapacity;   
-        
+        protected int storageCapacity;
+
         public string NameMobilePhone
         {
             get { return nameMobilePhone; }
@@ -14,7 +14,7 @@
                 if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value)) { throw new Exception(); }
                 nameMobilePhone = value;
             }
-        }        
+        }
         public string NetworkType
         {
             get { return networkType; }
@@ -41,10 +41,28 @@
             NetworkType = networkType;
             StorageCapacity = storageCapacity;
         }
-
-        public override void DisplayInfo()
+        public MobilePhone() : base("MobilePhone Manufacturer", "MobilePhone model", 0, 0, "MobilePhone color")
         {
-            Console.WriteLine($"Tablet \"{NameMobilePhone}\"\n" + $"Manufacturer: {Manufacturer}\n" + $"Model: {Model}\n" + $"Quantity: {Quantity}\n" + $"Price: {Price}\n" + $"Color: {Color}\n" + $"Network type: {NetworkType}\n" + $"Storage capacity: {StorageCapacity}\n" + $"");
+            NameMobilePhone = "MobilePhone";
+            NetworkType = "MobilePhone NetworkType";
+            StorageCapacity = 0;
+            Series = "None";
+        }
+
+        public override void DisplayInfo(int y)
+        {
+            string baseInfo = $"\nMobile phone <{NameMobilePhone}>\nManufacturer: {Manufacturer}\nModel: {Model}\nQuantity: {Quantity}\nPrice: {Price}\nColor: {Color}\n";
+            string anotherInfo = $"\nNetwork type: {NetworkType}\nStorage capacity: {StorageCapacity + y}\n";
+
+            DisplayContainer(baseInfo, anotherInfo, y);
+        }
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Mobile phone\n{NameMobilePhone}\n{Manufacturer}\n{Model}\n{Quantity}\n{Price}\n{Color}\n{NetworkType}\n{StorageCapacity}\n");
+        }
+        public override string ToString()
+        {
+            return $"{NameMobilePhone}\n{Manufacturer}\n{Model}\n{Quantity}\n{Price}\n{Color}\n{NetworkType}\n{StorageCapacity}\n";
         }
     }
 }

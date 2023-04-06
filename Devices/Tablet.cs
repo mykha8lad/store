@@ -2,7 +2,7 @@
 {
     internal class Tablet : Device
     {
-        private string nameTablet;
+        protected string nameTablet;
         protected string operatingSystem;
         protected double screenSize;
 
@@ -12,7 +12,7 @@
             set
             {
                 if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value)) { throw new Exception(); }
-                nameTablet = value;                
+                nameTablet = value;
             }
         }
         public string OperatingSystem
@@ -41,10 +41,28 @@
             OperatingSystem = operatingSystem;
             ScreenSize = screenSize;
         }
-
-        public override void DisplayInfo()
+        public Tablet() : base("Tablet Manufacturer", "Tablet model", 0, 0, "Tablet color")
         {
-            Console.WriteLine($"Tablet \"{NameTablet}\"\n" + $"Manufacturer: {Manufacturer}\n" + $"Model: {Model}\n" + $"Quantity: {Quantity}\n" + $"Price: {Price}\n" + $"Color: {Color}\n" + $"Operating system: {OperatingSystem}\n" + $"Screen size: {ScreenSize}\n" + $"");
-        }        
-    }   
+            NameTablet = "Tablet";
+            OperatingSystem = "Tablet OperatingSystem";
+            ScreenSize = 0;
+            Series = "None";
+        }
+
+        public override void DisplayInfo(int y)
+        {
+            string baseInfo = $"\nTablet <{NameTablet}>\nManufacturer: {Manufacturer}\nModel: {Model}\nQuantity: {Quantity}\nPrice: {Price}\nColor: {Color}\n";
+            string anotherInfo = $"\nOperating system: {OperatingSystem}\nScreen size: {ScreenSize}\n";
+
+            DisplayContainer(baseInfo, anotherInfo, y);
+        }
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Tablet\n{NameTablet}\n{Manufacturer}\n{Model}\n{Quantity}\n{Price}\n{Color}\n{OperatingSystem}\n{ScreenSize}\n");
+        }
+        public override string ToString()
+        {
+            return $"{NameTablet}\n{Manufacturer}\n{Model}\n{Quantity}\n{Price}\n{Color}\n{OperatingSystem}\n{ScreenSize}\n";
+        }
+    }
 }

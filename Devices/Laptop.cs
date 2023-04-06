@@ -1,8 +1,11 @@
-﻿namespace Store.Devices
+﻿using System.Diagnostics;
+using System.Xml;
+
+namespace Store.Devices
 {
     internal class Laptop : Device
-    {        
-        private string nameLaptop;
+    {
+        protected string nameLaptop;
         protected string processorType;
         protected int ramSize;
 
@@ -40,17 +43,29 @@
             NameLaptop = nameLaptop;
             ProcessorType = processorType;
             RamSize = ramSize;
-        }        
-        public Laptop() : base("None", "None", 0, 0, "None")
+        }
+        public Laptop() : base("Laptop Manufacturer", "Laptop model", 0, 0, "Laptop color")
         {
-            NameLaptop = "None";
-            ProcessorType = "None";
+            NameLaptop = "Laptop";
+            ProcessorType = "Laptop ProcessorType";
             RamSize = 0;
+            Series = "None";
         }
 
-        public override void DisplayInfo()
+        public override void DisplayInfo(int y)
         {
-            Console.WriteLine($"Tablet \"{NameLaptop}\"\n" + $"Manufacturer: {Manufacturer}\n" + $"Model: {Model}\n" + $"Quantity: {Quantity}\n" + $"Price: {Price}\n" + $"Color: {Color}\n" + $"Processor type: {ProcessorType}\n" + $"Ram size: {RamSize}\n" + $"");
+            string baseInfo = $"\nLaptop <{NameLaptop}>\nManufacturer: {Manufacturer}\nModel: {Model}\nQuantity: {Quantity}\nPrice: {Price}\nColor: {Color}\n";
+            string anotherInfo = $"\nProcessor type: {ProcessorType}\nRam size: {RamSize}\n";
+
+            DisplayContainer(baseInfo, anotherInfo, y);
+        }
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Laptop\n{NameLaptop}\n{Manufacturer}\n{Model}\n{Quantity}\n{Price}\n{Color}\n{ProcessorType}\n{RamSize}\n");
+        }
+        public override string ToString()
+        {
+            return $"Laptop\n{NameLaptop}\n{Manufacturer}\n{Model}\n{Quantity}\n{Price}\n{Color}\n{ProcessorType}\n{RamSize}\n";
         }
     }
 }
