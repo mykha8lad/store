@@ -27,7 +27,7 @@ store.DisplayStore();
 ___
 ## Поиск по заданному критерию (серии продукта)
 ```cs
-Console.WriteLine("Enter series key for remove device from this list");
+Console.WriteLine("Enter series key for found device in this store");
 key = Console.ReadLine();
 store.FindDevice(key);        
 ```
