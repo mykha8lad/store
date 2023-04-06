@@ -22,7 +22,7 @@ namespace Store.Devices
         }
         public string Manufacturer
         {
-            get { return manufacturer; }
+            get => manufacturer;
             set
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)) { throw new Exception(); }
