@@ -13,11 +13,8 @@ internal class Store
         get => _devices;
         set
         {
-            if (value == null)
-            {
-                throw new Exception();
-            }
-            _devices = new List<Device>();
+            if (value == null) { throw new NullReferenceException(); }
+            _devices = value;
         }
     }
 
