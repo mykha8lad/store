@@ -1,15 +1,13 @@
-using System.Runtime.CompilerServices;
-
 namespace Store.Devices;
 
-abstract class Device
+public abstract class Device
 {
-    protected string _series;
-    protected string _manufacturer;
-    protected string _model;
+    protected string? _series;
+    protected string? _manufacturer;
+    protected string? _model;
     protected int _quantity;
     protected double _price;
-    protected string _color;
+    protected string? _color;
 
     public string Series
     {
@@ -66,7 +64,7 @@ abstract class Device
         }
     }
 
-    protected Device(string manufacturer, string model, int quantity, double price, string color)
+    public Device(string manufacturer, string model, int quantity, double price, string color)
     {
         Manufacturer = manufacturer;
         Model = model;

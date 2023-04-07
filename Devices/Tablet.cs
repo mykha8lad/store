@@ -1,9 +1,9 @@
 ﻿namespace Store.Devices;
 
-internal class Tablet : Device
+public class Tablet : Device
 {
-    protected string _nameTablet;
-    protected string _operatingSystem;
+    protected string? _nameTablet;
+    protected string? _operatingSystem;
     protected double _screenSize;
 
     public string NameTablet

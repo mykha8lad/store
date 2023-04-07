@@ -1,9 +1,9 @@
 ﻿namespace Store.Devices;
 
-internal class MobilePhone : Device
+public class MobilePhone : Device
 {
-    protected string _nameMobilePhone;
-    protected string _networkType;
+    protected string? _nameMobilePhone;
+    protected string? _networkType;
     protected int _storageCapacity;
 
     public string NameMobilePhone

@@ -1,12 +1,9 @@
-﻿using System.Diagnostics;
-using System.Xml;
+﻿namespace Store.Devices;
 
-namespace Store.Devices;
-
-internal class Laptop : Device
+public class Laptop : Device
 {
-    protected string _nameLaptop;
-    protected string _processorType;
+    protected string? _nameLaptop;
+    protected string? _processorType;
     protected int _ramSize;
 
     public string NameLaptop

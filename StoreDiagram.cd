@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Store.Store" Collapsed="true">
+    <Position X="10.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBAAAABAAAIAAAMEAAAAAQEAQAAAACAAUAAAAAggAAA=</HashCode>
+      <FileName>Store.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Devices.Device" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggAAAAAAQAIEAABAgAEAAAAAAAAAAAEAAhAgAAAAAE=</HashCode>
+      <FileName>Devices\Device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Devices.Laptop" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAIAAEAAFAAAAAAAAAAAAAAQAAAAAQEAAAAA=</HashCode>
+      <FileName>Devices\Laptop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Devices.MobilePhone" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAgAAAAAEIAFAAAAAAIAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Devices\MobilePhone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.Devices.Tablet" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAEEAoAAAAIAAAAEAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Devices\Tablet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Store.StrategyPattern.FindDevice.FindManufacturer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\FindDevice\FindManufacturer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Store.StrategyPattern.FindDevice.FindModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\FindDevice\FindModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Store.StrategyPattern.FindDevice.FindSeries" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\FindDevice\FindSeries.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Store.StrategyPattern.RemoveDevice.RemoveManufacturer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\RemoveDevice\RemoveManufacturer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Store.StrategyPattern.RemoveDevice.RemoveModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\RemoveDevice\RemoveModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Store.StrategyPattern.RemoveDevice.RemoveSeries" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\RemoveDevice\RemoveSeries.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Store.StrategyPattern.FindDevice.IFindStrategy" Collapsed="true">
+    <Position X="8.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\FindDevice\IFindStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Store.StrategyPattern.RemoveDevice.IRemoveStrategy" Collapsed="true">
+    <Position X="10.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyPattern\RemoveDevice\IRemoveStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

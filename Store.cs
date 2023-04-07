@@ -1,13 +1,26 @@
 ﻿using Store.Devices;
-using System.Diagnostics;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
+using Store.StrategyPattern;
+using Store.StrategyPattern.FindDevice;
+using Store.StrategyPattern.RemoveDevice;
 
 namespace Store;
 
-internal class Store
+public class Store
 {
-    List<Device> _devices;
+    private IRemoveStrategy? _removeStrategy;
+    private IFindStrategy? _findStrategy;
+    List<Device>? _devices;
+
+    public IRemoveStrategy RemoveStrategy
+    {
+        get => _removeStrategy;
+        set => _removeStrategy = value;
+    }
+    public IFindStrategy FindStrategy
+    {
+        get => _findStrategy;
+        set => _findStrategy = value;
+    }
     public List<Device> Devices
     {
         get => _devices;
@@ -29,69 +42,97 @@ internal class Store
         Devices.Add(device);
         Console.Clear();
     }
-    public void DeleteDevice(string series)
+    public void DeleteDevice(string key)
     {
-        if (String.IsNullOrEmpty(series) || String.IsNullOrWhiteSpace(series)) { throw new NullReferenceException(); }
-
-        List<Device> resultDevices = Devices.FindAll(device => device.Series == series);
-        if (resultDevices.Count == 0) { Console.WriteLine("There are no devices matching the search criteria"); }
-        else
-        {
-            foreach (var device in resultDevices)
-            {
-                Console.WriteLine($"Found {device.Quantity} device(s):");
-                Console.WriteLine($"{device.Manufacturer} {device.Model} {device.Color} - {device.Price}");
-                Devices.Remove(device);
-                Console.WriteLine("Delete...");
-            }
-        }
         Console.Clear();
+        List<Device> _result = GetResultListForRemove(key);
+        try
+        {
+            _removeStrategy.RemoveAlgorithm(_result, this);
+        }
+        catch
+        {
+            Console.WriteLine("There are no devices matching the search criteria");
+        }
+        DisplayStore(3);
     }
-    public void DisplayStore()
+    public void FindDevice(string key)
     {
-        int height = 0;
+        List<Device> _result = GetResultListForFind(key);
+        try
+        {
+            _findStrategy?.FindAlgorithm(_result);
+        }
+        catch
+        {
+            Console.WriteLine("There are no devices matching the search criteria");
+        }
+    }
+    public void DisplayStore(int height = 0)
+    {
         for (int i = 0; i < Devices.Count; ++i)
         {
             Devices[i].DisplayInfo(height);
             height += 11;
         }
     }
-    public void FindDevice(string series)
-    {
-        if (String.IsNullOrEmpty(series) || String.IsNullOrWhiteSpace(series)) { throw new NullReferenceException(); }
 
-        List<Device> resultDevices = Devices.FindAll(device => device.Series == series);
-        if (resultDevices.Count == 0) { Console.WriteLine("There are no devices matching the search criteria"); }
-        else
+    // Interoperable Methods for the Strategy Pattern 
+    void SetStrategy(IRemoveStrategy removeStrategy) => RemoveStrategy = removeStrategy;
+    void SetStrategy(IFindStrategy findStrategy) => FindStrategy = findStrategy;
+    List<Device> GetResultListForRemove(string key)
+    {
+        List<Device> _result = new List<Device>();
+
+        List<Device> _resultManufacturers = Devices.FindAll(device => device.Manufacturer == key);
+        List<Device> _resultModels = Devices.FindAll(device => device.Model == key);
+        List<Device> _resultSeries = Devices.FindAll(device => device.Series == key);
+
+        if (_resultManufacturers.Count != 0)
         {
-            foreach (var device in resultDevices)
-            {
-                Console.WriteLine($"Found {device.Quantity} device(s):");
-                Console.WriteLine($"{device.Manufacturer} {device.Model} {device.Color} - {device.Price}");
-            }
+            SetStrategy(new RemoveManufacturer());
+            _result = _resultManufacturers;
         }
+        if (_resultModels.Count != 0)
+        {
+            SetStrategy(new RemoveModel());
+            _result = _resultModels;
+        }
+        if (_resultSeries.Count != 0)
+        {
+            SetStrategy(new RemoveSeries());
+            _result = _resultSeries;
+        }
+
+        return _result;
     }
-
-    public Device this[string series]
+    List<Device> GetResultListForFind(string key)
     {
-        get => Devices.Find(device => device.Series == series);
-        set
+        List<Device> _result = new List<Device>();
+
+        List<Device> _resultManufacturers = Devices.FindAll(device => device.Manufacturer == key);
+        List<Device> _resultModels = Devices.FindAll(device => device.Model == key);
+        List<Device> _resultSeries = Devices.FindAll(device => device.Series == key);
+
+        if (_resultManufacturers.Count != 0)
         {
-            if (String.IsNullOrEmpty(series) || String.IsNullOrWhiteSpace(series)) { throw new Exception(); }
-            int index = Devices.FindIndex(device => device.Series == series);
-            if (index != -1)
-            {
-                if (value == null) { throw new NullReferenceException(); }
-                Devices[index] = value;
-            }
-            else
-            {
-                if (value == null) { throw new NullReferenceException(); }
-                Devices.Add(value);
-            }
+            SetStrategy(new FindManufacturer());
+            _result = _resultManufacturers;
         }
+        if (_resultModels.Count != 0)
+        {
+            SetStrategy(new FindModel());
+            _result = _resultModels;
+        }
+        if (_resultSeries.Count != 0)
+        {
+            SetStrategy(new FindSeries());
+            _result = _resultSeries;
+        }
+
+        return _result;
     }
 
     public string GetListDevices() { return string.Join("\n", Devices); }
-    public override string ToString() => $"{GetListDevices()}\n";    
+    public override string ToString() => $"{GetListDevices()}\n";
 }
