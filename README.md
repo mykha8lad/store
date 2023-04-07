@@ -1,12 +1,12 @@
 # __Home Work 28/03/23__
-# :man_technologist:  Develop a Store application that generates a list of certain devices, for example, such as Mobile Phone, Laptop, Tablet. All three classes are derived from the abstract class "Device". Work with objects of the corresponding classes is performed through references to the base class, which are stored in a list. The application must provide the following features:
+# :man_technologist: Develop a Store application that generates a list of certain devices, for example, such as Mobile Phone, Laptop, Tablet. All three classes are derived from the abstract class "Device". Work with objects of the corresponding classes is performed through references to the base class, which are stored in a list. The application must provide the following features:
 * ## Adding a device to the list 
 * ## Removing a device from the list by a specified criterion 
 * ## Printing a list 
 * ## Searching for a device by a specified criterion
-# __Diagram Store Project__ :point_down:
+# :point_down: __Diagram Store Project__
 [![Diagram.jpg](https://i.postimg.cc/bwXMBDDZ/Diagram.jpg)](https://postimg.cc/qzLjt7Gr)
-# __Project Map__ :world_map:
+# :world_map: __Project Map__
 > ## [<span style="color:red;">Store.cs</span>](https://github.com/mykha8lad/store/blob/main/Store.cs) :convenience_store:
 >> ## Devices :file_folder: 
 >>> ## [<span style="color:red;">Device.cs</span> <span style="color:White;">- Abstract</span>](https://github.com/mykha8lad/store/blob/main/Devices/Device.cs) :shopping_cart::recycle:
