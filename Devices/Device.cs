@@ -64,7 +64,7 @@ public abstract class Device
         }
     }
 
-    public Device(string manufacturer, string model, int quantity, double price, string color)
+    protected Device(string manufacturer, string model, int quantity, double price, string color)
     {
         Manufacturer = manufacturer;
         Model = model;
