@@ -5,8 +5,7 @@ namespace Store.StrategyPattern.RemoveDevice;
 public class RemoveSeries : IRemoveStrategy
 {
     public void RemoveAlgorithm(List<Device> result, Store store)
-    {
-        
+    {        
         foreach (Device device in result)
         {
             Console.WriteLine($"Found {device.Quantity} device(s):");
